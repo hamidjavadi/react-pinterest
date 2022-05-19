@@ -3,11 +3,11 @@ export interface IPostState {
   filterKeyword: string;
   isLoading: boolean;
   perPage: number;
-  posts: IPost[];
+  posts: Post[];
   total: number;
 }
 
-export interface IPost {
+export type Post = {
   page_id: string | number;
   url: string;
   canonical_url: string;
@@ -33,4 +33,4 @@ export interface IPost {
   price_old?: string;
   discount?: string;
   s3_url?: string;
-}
+};

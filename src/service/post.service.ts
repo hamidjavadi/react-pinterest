@@ -1,6 +1,15 @@
-import { loadPostsStart, loadPostsEnd } from "../data/store/post/slice";
+import { Dispatch } from "react";
+import { AnyAction } from "redux";
+import {
+  loadPostsStart,
+  loadPostsEnd,
+  addLoadedPosts
+} from "../data/store/post/slice";
 
-export const loadPosts = async (dispatch: any, page: number = 0) => {
+export const loadPosts = async (
+  dispatch: Dispatch<AnyAction>,
+  page: number = 0
+) => {
   const url = new URL("https://xoosha.com/ws/1/test.php");
   url.searchParams.append("offset", String(page));
 
@@ -11,7 +20,7 @@ export const loadPosts = async (dispatch: any, page: number = 0) => {
       return res.json();
     })
     .then((data) => {
-      console.log(data);
+      dispatch(addLoadedPosts(data));
     })
     .catch((error) => {
       console.log("Error:", error);
