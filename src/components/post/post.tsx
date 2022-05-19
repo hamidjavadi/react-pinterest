@@ -1,11 +1,11 @@
-import { IPost } from "../../data/store/post/types";
+import { Post } from "../../data/store/post/types";
 
 type Props = {
   key: any;
-  post: IPost;
+  post: Post;
 };
 
-function Post(props: Props) {
+function PostItem(props: Props) {
   const mouseEnter = () => {};
   const mouseLeave = () => {};
 
@@ -69,4 +69,4 @@ function Post(props: Props) {
   );
 }
 
-export default Post;
+export default PostItem;
